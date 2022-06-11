@@ -5,5 +5,8 @@
   "main": "src/index.js",
   "author": "Franklin Rodriguez <franklinserif@gmail.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "eslint": "^8.17.0"
+  }
 }
