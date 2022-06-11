@@ -1,0 +1,9 @@
+{
+  "name": "storefy",
+  "version": "1.0.0",
+  "description": "An e-commerce API with Express, Seuqelize, Postgresql",
+  "main": "src/index.js",
+  "author": "Franklin Rodriguez <franklinserif@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
