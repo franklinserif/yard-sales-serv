@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const config = require('./config/config');
 
 const app = express();
 
@@ -21,4 +22,4 @@ app.get('/', (req, res) => {
   res.send('working');
 });
 
-app.listen(3000, () => {});
+app.listen(config.serverPort, () => {});
