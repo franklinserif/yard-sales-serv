@@ -46,3 +46,19 @@ const CustomerSchema = {
     onDelete: 'SET NULL',
   },
 };
+
+class Customer extends Model {
+  static associate(models) {
+    this.belongsTo(models.User, { as: 'user' });
+    this.hasMany(models.Order, { as: 'orders', foreignKey: 'customerId' });
+  }
+
+  static config(sequelize) {
+    return {
+      sequelize,
+      tableName: CUSTOMER_TABLE,
+      modelName: 'customer',
+      timestamps: false,
+    };
+  }
+}
