@@ -43,3 +43,5 @@ class Category extends Model {
     };
   }
 }
+
+module.exports = { CATEGORY_TABLE, categorySchema, Category };
