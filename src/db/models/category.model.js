@@ -28,3 +28,18 @@ const categorySchema = {
     defaultValie: Sequelize.NOW,
   },
 };
+
+class Category extends Model {
+  static associate(Models) {
+    this.hasMany(Models.product, { as: 'products', foreignKey: 'categoryId' });
+  }
+
+  static config(sequelize) {
+    return {
+      sequelize,
+      tableName: CATEGORY_TABLE,
+      modelName: 'category',
+      timestamps: false,
+    };
+  }
+}
