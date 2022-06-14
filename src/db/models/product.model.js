@@ -1,4 +1,5 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
+const { CATEGORY_TABLE } = require('./category.model');
 
 const PRODUCT_TABLE = 'products';
 
@@ -28,6 +29,17 @@ const ProductSchema = {
   price: {
     allowNull: false,
     type: DataTypes.STRING,
+  },
+
+  categoryId: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    references: {
+      model: CATEGORY_TABLE,
+      key: 'id',
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL',
   },
 
   createdAt: {
