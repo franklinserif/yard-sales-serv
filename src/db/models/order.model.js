@@ -42,3 +42,24 @@ const orderSchema = {
     },
   },
 };
+
+class Order extends Model {
+  static associate(Models) {
+    this.belongsTo(Models.customer, { as: 'customer' });
+    this.belongsToMany(Models.Product, {
+      as: 'items',
+      through: Models.OrderProduct,
+      foreignKey: 'orderId',
+      otherKey: 'productId',
+    });
+  }
+
+  static config(sequelize) {
+    return {
+      sequelize,
+      tableName: ORDER_TABLE,
+      modelName: 'Order',
+      timestamps: false,
+    };
+  }
+}
