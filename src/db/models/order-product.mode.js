@@ -79,7 +79,7 @@ class OrderProduct extends Model {
    * @param {Object} Models
    * @return {void}
    */
-  static associate(models) {
+  static associate(Models) {
     //
   }
 
