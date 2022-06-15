@@ -1,7 +1,26 @@
+/**
+ * This module have all Category information
+ * for sequelize generate the table, including
+ * Table name, Schema, model and model relationships
+ * @module src/db/migrations/category.model.js
+ */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
+/**
+ * It represent the name of the database table
+ * that sequelize will use to defined it
+ * @constant
+ * @type {string}
+ * @default
+ */
 const CATEGORY_TABLE = 'categories';
 
+/**
+ * It will define the Category Schema
+ * that sequelize will use to define the
+ * database table
+ * @type {Object}
+ */
 const categorySchema = {
   id: {
     allowNull: false,
@@ -25,15 +44,33 @@ const categorySchema = {
     allowNull: false,
     type: DataTypes.DATE,
     field: 'created_at',
+    // @ts-ignore
     defaultValie: Sequelize.NOW,
   },
 };
 
+/**
+ * Category Model for sequelize Categories
+ * Database Table
+ */
 class Category extends Model {
+  /**
+   * It will make the sql relatioship between
+   * category table and Products table, one category may have
+   * many products
+   * @param {Object} Models
+   * @return {void}
+   */
   static associate(Models) {
     this.hasMany(Models.product, { as: 'products', foreignKey: 'categoryId' });
   }
 
+  /**
+   * It will return the main configuration for
+   * setup the table in sequelize
+   * @param {Object} sequelize
+   * @returns {Object}
+   */
   static config(sequelize) {
     return {
       sequelize,

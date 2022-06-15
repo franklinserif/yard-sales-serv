@@ -1,8 +1,27 @@
+/**
+ * This module have all Order information
+ * for sequelize generate the table, including
+ * Table name, Schema, model and model relationships
+ * @module src/db/migrations/order.model.js
+ */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const { CUSTOMER_TABLE } = require('./customer.model');
 
+/**
+ * It represent the name of the database table
+ * that sequelize will use to defined it
+ * @constant
+ * @type {Object}
+ * @default
+ */
 const ORDER_TABLE = 'orders';
 
+/**
+ * It will define the Order Schema
+ * that sequelize will use to define the
+ * database table
+ * @type {Object}
+ */
 const orderSchema = {
   id: {
     allowNull: false,
@@ -43,7 +62,19 @@ const orderSchema = {
   },
 };
 
+/**
+ * Order Model for sequelize Order
+ * Database Table
+ */
 class Order extends Model {
+  /**
+   * It will make the sql relatioship between
+   * Order table - Customer table / Order - Product
+   * One Order belongs to one Customer / Many Orders belongs
+   * to many Product
+   * @param {Object} Models
+   * @return {void}
+   */
   static associate(Models) {
     this.belongsTo(Models.customer, { as: 'customer' });
     this.belongsToMany(Models.Product, {
@@ -54,6 +85,12 @@ class Order extends Model {
     });
   }
 
+  /**
+   * It will return the main configuration for
+   * setup the table in sequelize
+   * @param {Object} sequelize
+   * @returns {Object}
+   */
   static config(sequelize) {
     return {
       sequelize,

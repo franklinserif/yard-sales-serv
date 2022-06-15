@@ -1,8 +1,27 @@
+/**
+ * This module have all Customer information
+ * for sequelize generate the table, including
+ * Table name, Schema, model and model relationships
+ * @module src/db/migrations/customer.model.js
+ */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const { USER_TABLE } = require('./user.model');
 
+/**
+ * It represent the name of the database table
+ * that sequelize will use to defined it
+ * @constant
+ * @type {string}
+ * @default
+ */
 const CUSTOMER_TABLE = 'customers';
 
+/**
+ * It will define the Customer Schema
+ * that sequelize will use to define the
+ * database table
+ * @type {Object}
+ */
 const CustomerSchema = {
   id: {
     allowNull: false,
@@ -30,6 +49,7 @@ const CustomerSchema = {
     allowNull: false,
     type: DataTypes.DATE,
     field: 'created_at',
+    // @ts-ignore
     defaultValue: Sequelize.NOW,
   },
 
@@ -47,12 +67,30 @@ const CustomerSchema = {
   },
 };
 
+/**
+ * This class will define all configuration, relationships
+ * and schemas that sequelize need to create the database table
+ */
 class Customer extends Model {
+  /**
+   * It will make the sql relatioship between
+   * category table and Customers table - Users table /
+   * Customers - Orders. One Customer may have one User.
+   * One Customer may have one Order
+   * @param {Object} models
+   * @return {void}
+   */
   static associate(models) {
     this.belongsTo(models.User, { as: 'user' });
     this.hasMany(models.Order, { as: 'orders', foreignKey: 'customerId' });
   }
 
+  /**
+   * It will return the main configuration for
+   * setup the table in sequelize
+   * @param {Object} sequelize
+   * @returns {Object}
+   */
   static config(sequelize) {
     return {
       sequelize,

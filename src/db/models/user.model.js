@@ -1,7 +1,26 @@
+/**
+ * This module have all User information
+ * for sequelize generate the table, including
+ * Table name, Schema, model and model relationships
+ * @module src/db/migrations/product.model.js
+ */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
+/**
+ * It represent the name of the database table
+ * that sequelize will use to defined it
+ * @constant
+ * @type {Object}
+ * @default
+ */
 const USER_TABLE = 'users';
 
+/**
+ * It will define the User Schema
+ * that sequelize will use to define the
+ * database table
+ * @type {Object}
+ */
 const UserSchema = {
   id: {
     allowNull: false,
@@ -34,7 +53,17 @@ const UserSchema = {
   },
 };
 
+/**
+ * User Model for sequelize User
+ * Database Table
+ */
 class User extends Model {
+  /**
+   * It will make the sql relatioship between
+   * User and Customer, one User may have one Customer
+   * @param {Object} Models
+   * @return {void}
+   */
   static associate(models) {
     this.HasOne(models.Customer, {
       as: 'customer,',
@@ -42,6 +71,12 @@ class User extends Model {
     });
   }
 
+  /**
+   * It will return the main configuration for
+   * setup the table in sequelize
+   * @param {Object} sequelize
+   * @returns {Object}
+   */
   static config(sequelize) {
     return {
       sequelize,

@@ -1,7 +1,16 @@
+/**
+ * This module set the configuration sequelize need
+ * @module src/libs/sequelize.js
+ */
 const { Sequelize } = require('sequelize');
 const config = require('../config/config');
 const setupModels = require('../db/models/index');
 
+/**
+ * It will define all options
+ * for initialize sequelize
+ * @type {Object}
+ */
 const options = {
   dialect: 'postgres',
 };

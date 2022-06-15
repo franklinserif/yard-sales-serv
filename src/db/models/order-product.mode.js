@@ -1,10 +1,29 @@
+/**
+ * This module have all Category information
+ * for sequelize generate the table, including
+ * Table name, Schema, model and model relationships
+ * @module src/db/migrations/order-product.model.js
+ */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
 const { ORDER_TABLE } = require('./order.model');
 const { PRODUCT_TABLE } = require('./product.model');
 
+/**
+ * It represent the name of the database table
+ * that sequelize will use to defined it
+ * @constant
+ * @type {Object}
+ * @default
+ */
 const ORDER_PRODUCT_TABLE = 'orders_products';
 
+/**
+ * It will define the OrderProduct Schema
+ * that sequelize will use to define the
+ * database table
+ * @type {Object}
+ */
 const OrderProductSchema = {
   id: {
     allowNull: false,
@@ -17,6 +36,7 @@ const OrderProductSchema = {
     allowNull: false,
     type: DataTypes.DATE,
     field: 'created_at',
+    // @ts-ignore
     defaultValue: Sequelize.NOW,
   },
 
@@ -49,11 +69,26 @@ const OrderProductSchema = {
   },
 };
 
+/**
+ * Category Model for sequelize OrderProduct
+ * Database Table
+ */
 class OrderProduct extends Model {
+  /**
+   * It will make all the relationship need it
+   * @param {Object} Models
+   * @return {void}
+   */
   static associate(models) {
     //
   }
 
+  /**
+   * It will return the main configuration for
+   * setup the table in sequelize
+   * @param {Object} sequelize
+   * @returns {Object}
+   */
   static config(sequelize) {
     return {
       sequelize,
