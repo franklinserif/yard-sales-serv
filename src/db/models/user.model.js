@@ -49,6 +49,7 @@ const UserSchema = {
     allowNull: false,
     type: DataTypes.STRING,
     field: 'create_at',
+    // @ts-ignore
     defaultValue: Sequelize.NOW,
   },
 };
