@@ -65,7 +65,7 @@ class User extends Model {
    * @return {void}
    */
   static associate(models) {
-    this.HasOne(models.Customer, {
+    this.hasOne(models.Customer, {
       as: 'customer,',
       foreignKey: 'userId',
     });
