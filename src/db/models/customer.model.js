@@ -77,12 +77,12 @@ class Customer extends Model {
    * category table and Customers table - Users table /
    * Customers - Orders. One Customer may have one User.
    * One Customer may have one Order
-   * @param {Object} models
+   * @param {Object} Models
    * @return {void}
    */
-  static associate(models) {
-    this.belongsTo(models.User, { as: 'user' });
-    this.hasMany(models.Order, { as: 'orders', foreignKey: 'customerId' });
+  static associate(Models) {
+    this.belongsTo(Models.User, { as: 'user' });
+    this.hasMany(Models.Order, { as: 'orders', foreignKey: 'customerId' });
   }
 
   /**
