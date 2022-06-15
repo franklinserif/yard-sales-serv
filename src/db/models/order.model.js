@@ -46,6 +46,7 @@ const orderSchema = {
     allowNull: false,
     type: DataTypes.DATE,
     field: 'created_at',
+    // @ts-ignore
     defaultValue: Sequelize.NOW,
   },
 
