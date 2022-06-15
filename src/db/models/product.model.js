@@ -81,8 +81,8 @@ class Product extends Model {
    * @param {Object} Models
    * @return {void}
    */
-  static associate(models) {
-    this.belongsTo(models.category, { as: 'category' });
+  static associate(Models) {
+    this.belongsTo(Models.category, { as: 'category' });
   }
 
   /**
@@ -101,4 +101,4 @@ class Product extends Model {
   }
 }
 
-module.exports = { ProductSchema, Product };
+module.exports = { PRODUCT_TABLE, ProductSchema, Product };

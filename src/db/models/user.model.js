@@ -49,6 +49,7 @@ const UserSchema = {
     allowNull: false,
     type: DataTypes.STRING,
     field: 'create_at',
+    // @ts-ignore
     defaultValue: Sequelize.NOW,
   },
 };
@@ -64,8 +65,8 @@ class User extends Model {
    * @param {Object} Models
    * @return {void}
    */
-  static associate(models) {
-    this.HasOne(models.Customer, {
+  static associate(Models) {
+    this.hasOne(Models.Customer, {
       as: 'customer,',
       foreignKey: 'userId',
     });
