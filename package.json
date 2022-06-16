@@ -10,7 +10,11 @@
     "dev": "nodemon ./src/index.js",
     "start": "pm2 ./src/index.js",
     "eslint": "eslint",
-    "test": "jest"
+    "test": "jest",
+    "migrations:generate": "sequelize-cli db:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:undo",
+    "migrations:delete": "sequelize-cli db:undo:all"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
