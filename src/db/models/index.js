@@ -30,7 +30,6 @@ function setupModels(sequelize) {
   Category.associate(sequelize.Models);
   Product.associate(sequelize.Models);
   Order.associate(sequelize.Models);
-  OrderProduct.associate(sequelize.Models);
 }
 
 module.exports = setupModels;
