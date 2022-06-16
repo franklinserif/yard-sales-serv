@@ -24,6 +24,13 @@ function setupModels(sequelize) {
   Product.init(ProductSchema, Product.config(sequelize));
   Order.init(OrderSchema, Order.config(sequelize));
   OrderProduct.init(OrderProductSchema, OrderProduct.config(sequelize));
+
+  User.associate(sequelize.Models);
+  Customer.associate(sequelize.Models);
+  Category.associate(sequelize.Models);
+  Product.associate(sequelize.Models);
+  Order.associate(sequelize.Models);
+  OrderProduct.associate(sequelize.Models);
 }
 
 module.exports = setupModels;
