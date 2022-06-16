@@ -9,7 +9,7 @@
 
 const boom = require('@hapi/boom');
 
-const { model } = require('sequelize');
+const { models } = require('sequelize');
 
 /**
  * This class will define all methods for manipule
@@ -23,7 +23,7 @@ class OrderService {
    * @returns {void}
    */
   async create(data) {
-    const order = await model.Order.create(data);
+    const order = await models.Order.create(data);
 
     return order;
   }
@@ -34,7 +34,7 @@ class OrderService {
    * @returns {Promise<Array<Object>>}
    */
   async find() {
-    const orders = await model.Order.findAll();
+    const orders = await models.Order.findAll();
 
     return orders;
   }
@@ -46,7 +46,7 @@ class OrderService {
    * @returns {Promise<Object>}
    */
   async findOne(id) {
-    const order = await model.Order.findOne(id);
+    const order = await models.Order.findOne(id);
 
     if (!order) throw boom.notFound('Order not found');
     return order;

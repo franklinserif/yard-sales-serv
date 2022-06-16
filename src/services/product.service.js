@@ -9,7 +9,7 @@
 
 const boom = require('@hapi/boom');
 
-const { model } = require('../libs/sequelize');
+const { models } = require('../libs/sequelize');
 
 /**
  * This class will define all methods for manipule
@@ -23,7 +23,7 @@ class ProductService {
    * @returns {void}
    */
   async create(data) {
-    const product = await model.Products.create(data);
+    const product = await models.Products.create(data);
     return product;
   }
 
@@ -33,7 +33,7 @@ class ProductService {
    * @returns {Promise<Array<Object>>}
    */
   async find() {
-    const products = await model.Products.findAll();
+    const products = await models.Products.findAll();
     return products;
   }
 
@@ -44,7 +44,7 @@ class ProductService {
    * @returns {Promise<Object>}
    */
   async findOne(id) {
-    const product = await model.Product.findOne(id);
+    const product = await models.Product.findOne(id);
     if (product) throw boom.notFound('Product not found');
     return product;
   }
