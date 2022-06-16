@@ -44,7 +44,7 @@ class ProductService {
    * @returns {Promise<Object>}
    */
   async findOne(id) {
-    const product = await models.Product.findOne(id);
+    const product = await models.Product.findByPk(id);
     if (product) throw boom.notFound('Product not found');
     return product;
   }

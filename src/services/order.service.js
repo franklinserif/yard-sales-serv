@@ -1,6 +1,5 @@
-/* eslint-disable no-shadow */
-// @ts-nocheck
 /* eslint-disable class-methods-use-this */
+/* eslint-disable no-shadow */
 /**
  * It contains all the class and he's methods
  * for manage all the table information
@@ -9,7 +8,7 @@
 
 const boom = require('@hapi/boom');
 
-const { models } = require('sequelize');
+const { models } = require('../libs/sequelize');
 
 /**
  * This class will define all methods for manipule
@@ -20,7 +19,6 @@ class OrderService {
    * It will insert data in the database table
    * @async
    * @param {Object} data
-   * @returns {void}
    */
   async create(data) {
     const order = await models.Order.create(data);
@@ -46,7 +44,7 @@ class OrderService {
    * @returns {Promise<Object>}
    */
   async findOne(id) {
-    const order = await models.Order.findOne(id);
+    const order = await models.Order.findByPk(id);
 
     if (!order) throw boom.notFound('Order not found');
     return order;
