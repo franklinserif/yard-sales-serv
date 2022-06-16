@@ -13,7 +13,6 @@ const { models } = require('../libs/sequelize');
  * This class will define all methods for manipule
  * data in the database table
  */
-
 class CustomerService {
   /**
    * It will insert data in the database table
