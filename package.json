@@ -10,7 +10,15 @@
     "dev": "nodemon ./src/index.js",
     "start": "pm2 ./src/index.js",
     "eslint": "eslint",
-    "test": "jest"
+    "test": "jest",
+    "migrations:generate": "sequelize-cli db:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:undo",
+    "migrations:delete": "sequelize-cli db:undo:all",
+    "seeders:generate": "sequelize-cli seed:generate --name",
+    "seeders:run": "sequelize-cli db:seed:all",
+    "seeders:revert": "sequelize-cli seed:undo",
+    "seeders:delete": "sequelize-cli seed:undo:all"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
@@ -22,6 +30,7 @@
     "prettier": "^2.6.2"
   },
   "dependencies": {
+    "@hapi/boom": "^10.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",

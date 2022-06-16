@@ -21,7 +21,7 @@ const CATEGORY_TABLE = 'categories';
  * database table
  * @type {Object}
  */
-const categorySchema = {
+const CategorySchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -81,4 +81,4 @@ class Category extends Model {
   }
 }
 
-module.exports = { CATEGORY_TABLE, categorySchema, Category };
+module.exports = { CATEGORY_TABLE, CategorySchema, Category };

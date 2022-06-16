@@ -22,7 +22,7 @@ const ORDER_TABLE = 'orders';
  * database table
  * @type {Object}
  */
-const orderSchema = {
+const OrderSchema = {
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -104,6 +104,6 @@ class Order extends Model {
 
 module.exports = {
   ORDER_TABLE,
-  orderSchema,
+  OrderSchema,
   Order,
 };

@@ -76,10 +76,8 @@ const OrderProductSchema = {
 class OrderProduct extends Model {
   /**
    * It will make all the relationship need it
-   * @param {Object} Models
-   * @return {void}
    */
-  static associate(Models) {
+  static associate() {
     //
   }
 
