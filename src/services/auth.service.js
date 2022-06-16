@@ -81,7 +81,7 @@ class AuthService {
     });
 
     await transporte.sendMail({
-      form: config.emailSender,
+      from: config.emailSender,
       to: `${user.email}`,
       subject: 'Recovery password',
       text: 'Hola',
