@@ -2,7 +2,7 @@
  * This module have all Category information
  * for sequelize generate the table, including
  * Table name, Schema, model and model relationships
- * @module src/db/migrations/category.model.js
+ * @module models/category
  */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 

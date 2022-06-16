@@ -1,7 +1,7 @@
 /**
  * It will define initialize all models configurations
  * for sequelize
- * @module src/db/models/index.js
+ * @module models/index
  */
 const { User, UserSchema } = require('./user.model');
 const { Customer, CustomerSchema } = require('./customer.model');

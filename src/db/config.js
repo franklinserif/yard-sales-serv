@@ -1,6 +1,6 @@
 /**
  * this modile set the main config for sequelize
- * @module src/db/config.js
+ * @module db/config
  */
 const config = require('../config/config');
 

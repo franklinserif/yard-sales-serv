@@ -1,6 +1,6 @@
 /**
  * This module set the configuration sequelize need
- * @module src/libs/sequelize.js
+ * @module libs/sequelize
  */
 const { Sequelize } = require('sequelize');
 const config = require('../config/config');

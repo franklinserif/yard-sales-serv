@@ -2,7 +2,7 @@
  * This module have all Customer information
  * for sequelize generate the table, including
  * Table name, Schema, model and model relationships
- * @module src/db/migrations/customer.model.js
+ * @module models/customer
  */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const { USER_TABLE } = require('./user.model');

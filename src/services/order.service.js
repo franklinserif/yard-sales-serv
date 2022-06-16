@@ -3,7 +3,7 @@
 /**
  * It contains all the class and he's methods
  * for manage all the table information
- * @module src/services/order.service.js
+ * @module services/order
  */
 
 const boom = require('@hapi/boom');

@@ -2,7 +2,7 @@
  * This module have all Product information
  * for sequelize generate the table, including
  * Table name, Schema, model and model relationships
- * @module src/db/migrations/product.model.js
+ * @module models/product
  */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const { CATEGORY_TABLE } = require('./category.model');

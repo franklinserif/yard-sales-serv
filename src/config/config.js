@@ -1,7 +1,7 @@
 /**
  * It will read all .env variable and make
  * available for the entire project
- * @module src/config/config.js
+ * @module  config/config
  */
 require('dotenv').config();
 

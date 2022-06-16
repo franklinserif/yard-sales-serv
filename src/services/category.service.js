@@ -2,7 +2,7 @@
 /**
  * It contains all the class and he's methods
  * for manage all the table information
- * @module src/services/category.service.js
+ * @module services/category
  */
 const boom = require('@hapi/boom');
 
