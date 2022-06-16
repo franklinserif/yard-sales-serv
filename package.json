@@ -14,7 +14,11 @@
     "migrations:generate": "sequelize-cli db:generate --name",
     "migrations:run": "sequelize-cli db:migrate",
     "migrations:revert": "sequelize-cli db:undo",
-    "migrations:delete": "sequelize-cli db:undo:all"
+    "migrations:delete": "sequelize-cli db:undo:all",
+    "seeders:generate": "sequelize-cli seed:generate --name",
+    "seeders:run": "sequelize-cli db:seed:all",
+    "seeders:revert": "sequelize-cli seed:undo",
+    "seeders:delete": "sequelize-cli seed:undo:all"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
