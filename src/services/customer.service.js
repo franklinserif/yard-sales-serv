@@ -81,3 +81,5 @@ class CustomerService {
     return { delete: true };
   }
 }
+
+module.exports = CustomerService;
