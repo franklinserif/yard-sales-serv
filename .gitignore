@@ -244,4 +244,6 @@ $RECYCLE.BIN/
 #docker volumes
 postgres_data
 
+
+jsdoc
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,linux,windows,macos

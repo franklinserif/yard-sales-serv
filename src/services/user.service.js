@@ -19,7 +19,7 @@ class UserService {
   /**
    * It will insert data in the database table
    * @param {Object} data
-   * @returns
+   * @returns {Promise<Object>}
    */
   async create(data) {
     const hash = bcrypt.hash(data.user.password, 10);

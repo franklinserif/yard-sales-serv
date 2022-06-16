@@ -18,7 +18,8 @@
     "seeders:generate": "sequelize-cli seed:generate --name",
     "seeders:run": "sequelize-cli db:seed:all",
     "seeders:revert": "sequelize-cli seed:undo",
-    "seeders:delete": "sequelize-cli seed:undo:all"
+    "seeders:delete": "sequelize-cli seed:undo:all",
+    "jsdoc": "jsdoc -c jsdoc.json"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
