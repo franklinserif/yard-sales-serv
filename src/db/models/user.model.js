@@ -63,6 +63,7 @@ class User extends Model {
    * It will make the sql relatioship between
    * User and Customer, one User may have one Customer
    * @param {Object} Models
+   * @static
    * @return {void}
    */
   static associate(Models) {
@@ -76,6 +77,7 @@ class User extends Model {
    * It will return the main configuration for
    * setup the table in sequelize
    * @param {Object} sequelize
+   * @static
    * @returns {Object}
    */
   static config(sequelize) {
