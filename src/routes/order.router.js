@@ -61,3 +61,25 @@ const router = express.Router();
  * @constant
  */
 const service = new OrderService();
+
+/**
+ * Route serving orders
+ * @name get/orders
+ * @function
+ * @memberof routes/order
+ * @param {string} path - Express path
+ */
+router.get(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  checkRoles('admin', 'user', 'seller'),
+  async (req, res, next) => {
+    try {
+      const orders = await service.find();
+
+      res.json(orders);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
