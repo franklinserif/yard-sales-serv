@@ -3,6 +3,7 @@
  * for sequelize generate the table, including
  * Table name, Schema, model and model relationships
  * @module models/category
+ * @requires sequelize
  */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
@@ -20,6 +21,8 @@ const CATEGORY_TABLE = 'categories';
  * that sequelize will use to define the
  * database table
  * @type {Object}
+ * @memberof models/category
+ * @constant
  */
 const CategorySchema = {
   id: {
@@ -60,7 +63,7 @@ class Category extends Model {
    * many products
    * @param {Object} Models
    * @static
-   * @return {void}
+   * @returns {void}
    */
   static associate(Models) {
     this.hasMany(Models.product, { as: 'products', foreignKey: 'categoryId' });
