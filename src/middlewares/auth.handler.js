@@ -1,6 +1,8 @@
 /**
  * It contains all the middleware for auth
  * @module middlewares/auth
+ * @requires boom;
+ * @requires module:config/config
  */
 
 const boom = require('@hapi/boom');
