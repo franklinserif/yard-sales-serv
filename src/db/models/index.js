@@ -2,6 +2,11 @@
  * It will define initialize all models configurations
  * for sequelize
  * @module models/index
+ * @requires module:models/user
+ * @requires module:models/customer
+ * @requires module:models/product
+ * @requires module:models/order
+ * @requires module:models/order-product
  */
 const { User, UserSchema } = require('./user.model');
 const { Customer, CustomerSchema } = require('./customer.model');
@@ -15,7 +20,8 @@ const { OrderProduct, OrderProductSchema } = require('./order-product.model');
  * configurations that sequelize need to create
  * databases tables and relationshipts
  * @param {Object} sequelize
- * @return {void}
+ * @function
+ * @returns {void}
  */
 function setupModels(sequelize) {
   User.init(UserSchema, User.config(sequelize));
