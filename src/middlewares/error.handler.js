@@ -1,6 +1,7 @@
 /**
  * errors handler middleware module
  * @module middlewares/error
+ * @requires sequelize
  */
 
 const { ValidationError } = require('sequelize');
