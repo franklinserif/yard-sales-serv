@@ -110,3 +110,29 @@ router.get(
     }
   },
 );
+
+/**
+ * Route serving a create order
+ * @name post/order
+ * @function
+ * @memberof routes/order
+ * @param {string} path - Express path
+ * @param {Function} middleware - Passport middleware
+ * @param {Function} middleware - ValidatorHandler
+ * @param {Function} middleware - Express middleware
+ */
+router.post(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  validatorHandler(createOrderSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const data = req.body;
+      const newOrder = service.create(data);
+
+      res.status(201).json(newOrder);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
