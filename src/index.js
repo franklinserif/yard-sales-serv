@@ -5,6 +5,7 @@
 
 const express = require('express');
 const cors = require('cors');
+const passport = require('passport');
 const config = require('./config/config');
 
 const app = express();
@@ -33,6 +34,7 @@ const options = {
 };
 
 app.use(cors(options));
+app.use(passport.initialize());
 
 app.get('/', (req, res) => {
   res.send('working');
