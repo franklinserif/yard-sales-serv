@@ -3,6 +3,8 @@
  * for sequelize generate the table, including
  * Table name, Schema, model and model relationships
  * @module models/customer
+ * @requires sequelize
+ * @requires model:models/user
  */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const { USER_TABLE } = require('./user.model');
@@ -79,7 +81,7 @@ class Customer extends Model {
    * One Customer may have one Order
    * @param {Object} Models
    * @static
-   * @return {void}
+   * @returns {void}
    */
   static associate(Models) {
     this.belongsTo(Models.User, { as: 'user' });
