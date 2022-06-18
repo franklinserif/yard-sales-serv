@@ -83,3 +83,29 @@ router.get(
     }
   },
 );
+
+/**
+ * Route serving an order
+ * @name get/order
+ * @function
+ * @memberof routes/order
+ * @param {string} path - Expres path
+ * @param {Function} middleware - Passport middleware
+ * @param {Function} middleware - ValidatorHandler
+ * @param {Function} middleware - Express
+ */
+router.get(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  validatorHandler(getOrderSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const order = await service.findOne(id);
+
+      res.json(order);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
