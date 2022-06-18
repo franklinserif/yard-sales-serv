@@ -32,12 +32,6 @@ const OrderService = require('../services/order.service');
 const validatorHandler = require('../middlewares/validator.handler');
 
 /**
- * Check user roles
- * @function
- */
-const { checkRoles } = require('../middlewares/auth.handler');
-
-/**
  * Order Schemas
  * @type {Object}
  */
