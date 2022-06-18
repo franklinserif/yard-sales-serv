@@ -3,6 +3,9 @@
  * for sequelize generate the table, including
  * Table name, Schema, model and model relationships
  * @module models/order-product
+ * @requires sequelize
+ * @requires module:models/order
+ * @requires module:models/product
  */
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
