@@ -68,11 +68,12 @@ const service = new OrderService();
  * @function
  * @memberof routes/order
  * @param {string} path - Express path
+ * @param {Function} middleware - Passport middleware
+ * @param {Function} middleware - Express middleware
  */
 router.get(
   '/',
   passport.authenticate('jwt', { session: false }),
-  checkRoles('admin', 'user', 'seller'),
   async (req, res, next) => {
     try {
       const orders = await service.find();
