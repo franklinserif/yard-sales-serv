@@ -2,6 +2,7 @@
  * This module contains all middleware
  * that validate data
  * @module middlewares/validator
+ * @requires boom
  */
 
 const boom = require('@hapi/boom');
