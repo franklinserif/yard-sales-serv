@@ -1,6 +1,9 @@
 /**
  * This module set the configuration sequelize need
  * @module libs/sequelize
+ * @requires sequelize
+ * @requires module:config/config
+ * @requires  module:models/index
  */
 const { Sequelize } = require('sequelize');
 const config = require('../config/config');
@@ -24,6 +27,12 @@ if (config.isProd) {
   options.loggin = console.log;
 }
 
+/**
+ * It will establish the connection with the database
+ * @type {Object}
+ * @memberof libs/sequelize
+ * @constant
+ */
 const sequelize = new Sequelize(config.dbUrl, options);
 
 setupModels(sequelize);
