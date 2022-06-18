@@ -23,7 +23,7 @@ const passport = require('passport');
 /**
  * Service related to order
  */
-const customerService = require('../services/order.service');
+const OrderService = require('../services/order.service');
 
 /**
  * ValidatorHandler Function
@@ -46,3 +46,18 @@ const {
   updateOrderSchema,
   getOrderSchema,
 } = require('../schemas/order.schema');
+
+/**
+ * Express router to mount order related functions on
+ * @type {Object}
+ * @constant
+ * @namespace orderRouter
+ */
+const router = express.Router();
+
+/**
+ * Services related to order
+ * @type {Object}
+ * @constant
+ */
+const service = new OrderService();
