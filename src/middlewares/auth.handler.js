@@ -47,7 +47,7 @@ function checkAdminRole(req, res, next) {
  * @param {Array<string>} roles
  * @returns {Function}
  */
-function checkRoles(roles) {
+function checkRoles(...roles) {
   return (req, res, next) => {
     const { user } = req;
 
