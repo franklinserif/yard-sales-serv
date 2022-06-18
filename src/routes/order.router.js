@@ -136,3 +136,34 @@ router.post(
     }
   },
 );
+
+/**
+ * Route serving a update order
+ * @name patch/order
+ * @function
+ * @memberof routes/order
+ * @param {string} path - Express path
+ * @param {Function} middleware - Passport middleware
+ * @param {Function} middleware - ValidatorHandler for id
+ * @param {Function} middleware - ValidatorHandler for update data
+ * @param {Function} middleware - Express middleware
+ */
+
+router.patch(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  validatorHandler(getOrderSchema, 'params'),
+  validatorHandler(updateOrderSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const data = req.body;
+      const orderUpdated = service.update(id, data);
+      res.status(201).json(orderUpdated);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+module.export = router;
