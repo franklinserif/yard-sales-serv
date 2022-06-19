@@ -49,3 +49,20 @@ const router = express.Router();
  * @constant
  */
 const service = new ProductService();
+
+/**
+ * Route serving product
+ * @name get/products
+ * @function
+ * @memberof routes/product
+ * @param {string} path - Express path
+ */
+router.get('/', async (req, res, next) => {
+  try {
+    const products = await service.find();
+
+    res.json(products);
+  } catch (error) {
+    next(error);
+  }
+});
