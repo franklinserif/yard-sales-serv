@@ -25,6 +25,12 @@ const passport = require('passport');
 const ProductService = require('../services/product.service');
 
 /**
+ * Validate data
+ * @function
+ */
+const { validatorHandler } = require('../middlewares/validator.handler');
+
+/**
  * Product Schemas
  * @type {Object}
  * @constant
