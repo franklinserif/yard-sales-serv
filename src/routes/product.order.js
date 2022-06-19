@@ -67,3 +67,28 @@ router.get('/', async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * Route serving a product
+ * @name get/product
+ * @function
+ * @memberof routes/product
+ * @param {string} path - Express path
+ * @param {Function} middleware - ValidatorHandler
+ * @param {Function} middleware - Express middleware
+ */
+router.get(
+  '/:id',
+  validatorHandler(getProductSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+
+      const product = service.findOne(id);
+
+      res.json(product);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
