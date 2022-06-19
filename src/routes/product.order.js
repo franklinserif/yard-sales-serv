@@ -56,6 +56,7 @@ const service = new ProductService();
  * @function
  * @memberof routes/product
  * @param {string} path - Express path
+ * @param {Function} middleware - Express middleware
  */
 router.get('/', async (req, res, next) => {
   try {
