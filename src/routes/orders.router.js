@@ -37,8 +37,8 @@ const validatorHandler = require('../middlewares/validator.handler');
  */
 const {
   createOrderSchema,
-  updateOrderSchema,
   getOrderSchema,
+  addItemSchema,
 } = require('../schemas/order.schema');
 
 /**
@@ -147,7 +147,7 @@ router.patch(
   '/:id',
   passport.authenticate('jwt', { session: false }),
   validatorHandler(getOrderSchema, 'params'),
-  validatorHandler(updateOrderSchema, 'body'),
+  validatorHandler(addItemSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
