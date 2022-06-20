@@ -131,7 +131,7 @@ router.post(
       const data = req.body;
       const user = await service.create(data);
 
-      res.json(user);
+      res.status(200).json(user);
     } catch (error) {
       next(error);
     }
