@@ -1,6 +1,6 @@
 /**
  * Express router providing product related routes
- * @module routes/product
+ * @module routes/products
  * @requires express
  * @requires passport
  * @requires module:services/product
@@ -66,7 +66,7 @@ const service = new ProductService();
  * Route serving product
  * @name get/products
  * @function
- * @memberof routes/product
+ * @memberof routes/products
  * @param {string} path - Express path
  * @param {Function} middleware - Express middleware
  */
@@ -84,7 +84,7 @@ router.get('/', async (req, res, next) => {
  * Route serving a product
  * @name get/product
  * @function
- * @memberof routes/product
+ * @memberof routes/products
  * @param {string} path - Express path
  * @param {Function} middleware - ValidatorHandler
  * @param {Function} middleware - Express middleware
@@ -109,7 +109,7 @@ router.get(
  * Route serving a create product route
  * @name post/product
  * @function
- * @memberof routes/product
+ * @memberof routes/products
  * @param {string} path - Express path
  * @param {Function} path - Passport middleware
  * @param {Function} middleware - check User admin
@@ -137,7 +137,7 @@ router.post(
  * Route for update product
  * @name patch/product
  * @function
- * @memberof routes/product
+ * @memberof routes/products
  * @param {string} path - Express path
  * @param {Function} middleware - passport middleware
  * @param {Function} middleware - check user roles
@@ -168,7 +168,7 @@ router.patch(
  * Route for delete product
  * @name delete/product
  * @function
- * @memberof routes/product
+ * @memberof routes/products
  * @param {string} path - Express path
  * @param {Function} middleware - passport middleware
  * @param {Function} middleware - check user role

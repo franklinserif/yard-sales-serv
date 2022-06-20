@@ -1,6 +1,6 @@
 /**
  * Express router providing categories related routes
- * @module routes/category
+ * @module routes/categories
  * @requires express
  * @requires passport
  * @requires module:services/category
@@ -89,7 +89,7 @@ router.get(
  * Route serving a category
  * @name get/id
  * @function
- * @memberof module:routes/category
+ * @memberof module:routes/categories
  * @param {string} path - Express path
  * @param {Function} middleware - Passport middleware
  * @param {Function} middleware - CheckRoles
@@ -115,7 +115,7 @@ router.get(
  * Route for creating a new category
  * @name post/category
  * @function
- * @memberof module:routes/category
+ * @memberof module:routes/categories
  * @param {string} path - Express middleware
  * @param {Function} middleware - Passport middleware
  * @param {Function} middleware - CheckRoles
@@ -141,7 +141,7 @@ router.post(
  * Route for update a category
  * @name patch/category
  * @function
- * @memberof module:routes/category
+ * @memberof module:routes/categories
  * @param {string} path - Express middleware
  * @param {Function} middleware - Passport middleware
  * @param {Function} middleware - CheckRoles
@@ -171,7 +171,7 @@ router.path(
  * Route for delete a category
  * @name delete/category
  * @function
- * @memberof module:routes/category
+ * @memberof module:routes/categories
  * @param {string} path = Express middleware
  * @param {Function} middleware - Passport middleware
  * @param {Function} middleware - checkRoles

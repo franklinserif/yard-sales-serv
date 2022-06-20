@@ -3,7 +3,7 @@
  * @module routes/customer
  * @requires express
  * @requires passport
- * @requires module:service/customer
+ * @requires module:service/customers
  * @requires module:middlewares/validator
  */
 
@@ -69,7 +69,7 @@ const service = new CustomerService();
  * Route serving customers
  * @name get/customers
  * @function
- * @memberof module:routes/customer
+ * @memberof module:routes/customers
  * @param {string} path - Express path
  * @param {Function} middleware - Express middleware
  */
@@ -91,7 +91,7 @@ router.get(
  * Router serving a customer
  * @name get/customer
  * @function
- * @memberof module:routes/customer
+ * @memberof module:routes/customers
  * @param {string} path - Express module
  * @param {Function} middleware - validatorHandler
  * @param {Function} middleware - Express middleware
@@ -117,7 +117,7 @@ router.get(
  * Router serving a create new route
  * @name post/customer
  * @function
- * @memberof module:routes/customer
+ * @memberof module:routes/customers
  * @param {string} path - Express path
  * @param {Function} middleware - passport
  * @param {Function} middleware - validatorHandler
@@ -142,7 +142,7 @@ router.post(
  * Router serving a update customer
  * @name patch/customer
  * @function
- * @memberof module:routes/customer
+ * @memberof module:routes/customers
  * @param {string} path - Express path
  * @param {Function} middleware - passport
  * @param {Function} middleware - validatorHandler
@@ -171,7 +171,7 @@ router.patch(
  * Router serving a delete customer
  * @name delete/customer
  * @function
- * @memberof module:routes/customer
+ * @memberof module:routes/customers
  * @param {string} path - Express path
  * @param {Function} middleware - passport
  * @param {Function} middleware - validatorHandler

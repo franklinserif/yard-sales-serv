@@ -1,7 +1,7 @@
 /**
  * Express router providing order related routes
  * @module routes/order
- * @requires module:service/order
+ * @requires module:service/orders
  * @requires module:middlewares/validator
  * @requires express
  */
@@ -60,7 +60,7 @@ const service = new OrderService();
  * Route serving orders
  * @name get/orders
  * @function
- * @memberof routes/order
+ * @memberof routes/orders
  * @param {string} path - Express path
  * @param {Function} middleware - Passport middleware
  * @param {Function} middleware - Express middleware
@@ -83,7 +83,7 @@ router.get(
  * Route serving an order
  * @name get/order
  * @function
- * @memberof routes/order
+ * @memberof routes/orders
  * @param {string} path - Expres path
  * @param {Function} middleware - Passport middleware
  * @param {Function} middleware - ValidatorHandler
@@ -107,7 +107,7 @@ router.get(
 
 /**
  * Route serving a create order
- * @name post/order
+ * @name post/orders
  * @function
  * @memberof routes/order
  * @param {string} path - Express path
@@ -133,7 +133,7 @@ router.post(
 
 /**
  * Route serving a update order
- * @name patch/order
+ * @name patch/orders
  * @function
  * @memberof routes/order
  * @param {string} path - Express path
