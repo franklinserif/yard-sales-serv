@@ -161,3 +161,32 @@ router.patch('/', async (req, res, next) => {
     next(error);
   }
 });
+
+/**
+ * Route serving delete user
+ * @name delete/user
+ * @function
+ * @memberof routes/users
+ * @param {string} path - Express path
+ * @param {Function} middleware - passport
+ * @param {Function} middleware - check user roles
+ * @param {Function} middleware - validate data
+ */
+router.delete(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  checkRoles('admin'),
+  validatorHandler(getUserSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const rta = await service.delete(id);
+
+      res.status(201).json(rta);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+module.exports = router;
