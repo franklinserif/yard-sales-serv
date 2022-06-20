@@ -110,3 +110,30 @@ router.get(
     }
   },
 );
+
+/**
+ * Router serving a create user
+ * @name post/user
+ * @function
+ * @memberof routes/users
+ * @param {string} path - Express path
+ * @param {Function} middleware - passport
+ * @param {Function} middleware - check user role
+ * @param {Function} middleware - validate data
+ * @param {Function} middleware - Express middleware
+ */
+router.post(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  validatorHandler(createUserSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const data = req.body;
+      const user = await service.create(data);
+
+      res.json(user);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
