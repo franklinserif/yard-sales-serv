@@ -150,17 +150,24 @@ router.post(
  * @param {Function} middleware - validate new user data
  * @param {Function} middleware - Express middleware
  */
-router.patch('/', async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const data = req.body;
-    const userUpdated = await service.update(id, data);
+router.patch(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  checkRoles('admin'),
+  validatorHandler(getUserSchema, 'params'),
+  validatorHandler(updateUserSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const data = req.body;
+      const userUpdated = await service.update(id, data);
 
-    res.status(201).json(userUpdated);
-  } catch (error) {
-    next(error);
-  }
-});
+      res.status(201).json(userUpdated);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 /**
  * Route serving delete user
