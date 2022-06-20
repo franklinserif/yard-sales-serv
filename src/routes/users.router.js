@@ -137,3 +137,27 @@ router.post(
     }
   },
 );
+
+/**
+ * Route serving an update user
+ * @name patch/user
+ * @function
+ * @memberof routes/user
+ * @param {string} path - Express path
+ * @param {Function} middleware - passport
+ * @param {Function} middleware - check user roles
+ * @param {Function} middleware - validate user id
+ * @param {Function} middleware - validate new user data
+ * @param {Function} middleware - Express middleware
+ */
+router.patch('/', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    const userUpdated = await service.update(id, data);
+
+    res.status(201).json(userUpdated);
+  } catch (error) {
+    next(error);
+  }
+});
