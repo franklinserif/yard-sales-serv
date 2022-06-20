@@ -28,7 +28,7 @@ const ProductService = require('../services/product.service');
  * Validate data
  * @function
  */
-const { validatorHandler } = require('../middlewares/validator.handler');
+const validatorHandler = require('../middlewares/validator.handler');
 
 /**
  * Check user roles
