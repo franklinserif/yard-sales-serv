@@ -79,7 +79,7 @@ router.get(
   checkRoles('admin'),
   async (req, res, next) => {
     try {
-      const users = service.find();
+      const users = await service.find();
 
       res.json(users);
     } catch (error) {
@@ -102,7 +102,7 @@ router.get(
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const user = service.findOne(id);
+      const user = await service.findOne(id);
 
       res.json(user);
     } catch (error) {
