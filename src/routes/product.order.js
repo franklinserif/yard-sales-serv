@@ -132,3 +132,34 @@ router.post(
     }
   },
 );
+
+/**
+ * Route for update product
+ * @name patch/product
+ * @function
+ * @memberof routes/product
+ * @param {string} path - Express path
+ * @param {Function} middleware - passport middleware
+ * @param {Function} middleware - check user roles
+ * @param {Function} middleware - validate product id
+ * @param {Function} middleware - validate new product data
+ * @param {Function} middleware - Express middleware
+ */
+router.patch(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  checkRoles('admin', 'seller'),
+  validatorHandler(getProductSchema, 'params'),
+  validatorHandler(updateProductSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const data = req.body;
+      const productUpdated = service.update(id, data);
+
+      res.status(201).json(productUpdated);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
