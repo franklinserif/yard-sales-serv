@@ -160,4 +160,4 @@ router.patch(
   },
 );
 
-module.export = router;
+module.exports = router;
