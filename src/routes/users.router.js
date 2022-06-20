@@ -94,7 +94,8 @@ router.get(
  * @function
  * @memberof routes/user
  * @param {string} path - Express path
- * @param {}
+ * @param {Function} middleware - Validate data
+ * @param {Function} middleware - Express middleware
  */
 router.get(
   '/:id',
