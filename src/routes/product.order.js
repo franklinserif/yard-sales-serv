@@ -163,3 +163,33 @@ router.patch(
     }
   },
 );
+
+/**
+ * Route for delete product
+ * @name delete/product
+ * @function
+ * @memberof routes/product
+ * @param {string} path - Express path
+ * @param {Function} middleware - passport middleware
+ * @param {Function} middleware - check user role
+ * @param {Function} middleware - validate data
+ * @param {Function} middleware - Express middleware
+ */
+router.delete(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  checkRoles('admin', 'seller'),
+  validatorHandler(getProductSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const rta = service.delete(id);
+
+      res.status(201).json(rta);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+module.exports = router;
