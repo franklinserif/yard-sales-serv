@@ -87,3 +87,26 @@ router.get(
     }
   },
 );
+
+/**
+ * Route serving an user
+ * @name get/user
+ * @function
+ * @memberof routes/user
+ * @param {string} path - Express path
+ * @param {}
+ */
+router.get(
+  '/:id',
+  validatorHandler(getUserSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const user = service.findOne(id);
+
+      res.json(user);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
