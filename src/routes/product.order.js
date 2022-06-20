@@ -98,3 +98,31 @@ router.get(
     }
   },
 );
+
+/**
+ * Route serving a create product route
+ * @name post/product
+ * @function
+ * @memberof routes/product
+ * @param {string} path - Express path
+ * @param {Function} path - Passport middleware
+ * @param {Function} middleware - check User admin
+ * @param {Function} middleware - validate data
+ * @param {Function} middleware - Express middleware
+ */
+router.post(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  checkRoles('admin', 'seller'),
+  validatorHandler(createProductSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const data = req.body;
+      const newProduct = service.create(data);
+
+      res.json(newProduct);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
