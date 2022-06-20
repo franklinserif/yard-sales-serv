@@ -31,6 +31,12 @@ const ProductService = require('../services/product.service');
 const { validatorHandler } = require('../middlewares/validator.handler');
 
 /**
+ * Check user roles
+ * @function
+ */
+const { checkRoles } = require('../middlewares/auth.handler');
+
+/**
  * Product Schemas
  * @type {Object}
  * @constant
