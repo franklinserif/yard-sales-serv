@@ -47,3 +47,43 @@ const validatorHandler = require('../middlewares/validator.handler');
  * @function
  */
 const { checkRoles } = require('../middlewares/auth.handler');
+
+/**
+ * Express router to mount user functions on
+ * @type {Object}
+ * @constant
+ * @namesapace userRouter
+ */
+const router = express.Router();
+
+/**
+ * User services
+ * @type {Object}
+ * @constant
+ */
+const service = new UserService();
+
+/**
+ * Route serving user
+ * @name get/users
+ * @function
+ * @memberof routes/users
+ * @param {string} path - Express path
+ * @param {Function} middleware - passport
+ * @param {Function} middleware - check user Roles
+ * @param {Function} middleware - Express middleware
+ */
+router.get(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  checkRoles('admin'),
+  async (req, res, next) => {
+    try {
+      const users = service.find();
+
+      res.json(users);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
