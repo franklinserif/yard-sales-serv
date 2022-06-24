@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /**
  * @file Main file of the project index.js
  * @author Franklin Rodriguez
@@ -7,6 +8,13 @@ const express = require('express');
 const cors = require('cors');
 const passport = require('passport');
 const config = require('./config/config');
+
+const routerApi = require('./routes');
+
+const {
+  boomErrorsHandler,
+  ormErrorHandler,
+} = require('./middlewares/error.handler');
 
 const app = express();
 
@@ -34,10 +42,20 @@ const options = {
 };
 
 app.use(cors(options));
+
+require('./utils/strategies');
+
 app.use(passport.initialize());
 
-app.get('/', (req, res) => {
-  res.send('working');
-});
+/**
+ * Initialize all routes
+ */
+routerApi(app);
+
+/**
+ * Error handle middlewares
+ */
+app.use(boomErrorsHandler);
+app.use(ormErrorHandler);
 
 app.listen(config.serverPort, () => {});
