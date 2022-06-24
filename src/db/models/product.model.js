@@ -84,7 +84,7 @@ class Product extends Model {
    * @returns {void}
    */
   static associate(Models) {
-    this.belongsTo(Models.category, { as: 'category' });
+    this.belongsTo(Models.Category, { as: 'category' });
   }
 
   /**
