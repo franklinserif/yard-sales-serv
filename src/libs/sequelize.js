@@ -9,6 +9,7 @@ const { Sequelize } = require('sequelize');
 const config = require('../config/config');
 const setupModels = require('../db/models/index');
 
+require('pg');
 /**
  * It will define all options
  * for initialize sequelize
