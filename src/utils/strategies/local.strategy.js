@@ -19,7 +19,9 @@ const LocalStrategy = new Strategy(
   },
 
   /**
-   *
+   * It will verify if the user exist
+   * and if exist compare the password to
+   * very if it's correct
    * @param {string} email
    * @param {string} password
    * @param {Function} done

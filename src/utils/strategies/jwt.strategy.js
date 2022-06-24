@@ -12,6 +12,12 @@ const options = {
   secrectOrKey: config.jwtSecret,
 };
 
+/**
+ * JWT strategy for use in the middleware
+ * @memberof utils/strategies/jwt
+ * @type {Object} JWT Strategy
+ * @constant
+ */
 const JwtStrategry = new Strategy(options, (payload, done) =>
   done(null, payload),
 );
