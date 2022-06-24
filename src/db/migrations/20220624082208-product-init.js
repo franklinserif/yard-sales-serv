@@ -1,15 +1,46 @@
 const { DataTypes } = require('sequelize');
 const { PRODUCT_TABLE } = require('../models/product.model');
-const { ORDER_TABLE } = require('../models/order.model');
+const { CATEGORY_TABLE } = require('../models/category.model');
 
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable(PRODUCT_TABLE, {
       id: {
         allowNull: false,
-        autoIncrement: true,
-        type: DataTypes.INTEGER,
+        autoIncrement: false,
         primaryKey: true,
+        type: DataTypes.INTEGER,
+      },
+
+      name: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+
+      image: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+
+      description: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+
+      price: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+
+      categoryId: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: {
+          model: CATEGORY_TABLE,
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
       },
 
       createdAt: {
@@ -18,34 +49,6 @@ module.exports = {
         field: 'created_at',
         // @ts-ignore
         defaultValue: Sequelize.NOW,
-      },
-
-      amount: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-      },
-
-      orderId: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        references: {
-          model: ORDER_TABLE,
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-      },
-
-      productId: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        field: 'product_id',
-        references: {
-          model: PRODUCT_TABLE,
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
       },
     });
   },
